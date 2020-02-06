@@ -1,10 +1,14 @@
 <?php
 
 class Conta {
+
+    //Atributos
     public $cpfTitular;
     public $nomeTitular;
     public $saldo = 0;
 
+
+    //Métodos
     public function sacar (float $valorASacar): void {
         if($valorASacar > $this->saldo) {
             echo "Saldo indisponível";
