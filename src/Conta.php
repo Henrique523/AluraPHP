@@ -5,7 +5,7 @@ class Conta {
     public $nomeTitular;
     public $saldo = 0;
 
-    public function sacar (float $valorASacar) {
+    public function sacar (float $valorASacar): void {
         if($valorASacar > $this->saldo) {
             echo "Saldo indisponível";
         }else{
@@ -18,6 +18,15 @@ class Conta {
             echo "Valor precisa ser positivo";
         }else{
             $this->saldo += $valorADepositar;
+        }
+    }
+
+    public function transferir(float $valorATransferir, Conta $contaDestino): void {
+        if($valorATransferir > $this->saldo) {
+            echo "Saldo indisponível";
+        }else{
+            $this->sacar($valorATransferir);
+            $contaDestino->depositar($valorATransferir);
         }
     }
 }
