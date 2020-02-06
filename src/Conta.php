@@ -3,7 +3,7 @@
 class Conta {
     public $cpfTitular;
     public $nomeTitular;
-    public $saldo = 0; //teste
+    public $saldo = 0;
 
     public function sacar (float $valorASacar): void {
         if($valorASacar > $this->saldo) {
