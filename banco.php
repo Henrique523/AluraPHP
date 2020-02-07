@@ -8,4 +8,4 @@ $primeiraConta->sacar(300);
 
 echo $primeiraConta->recuperaSaldo() . PHP_EOL;
 echo $primeiraConta->recuperaCpfTitular() . PHP_EOL;
-echo $primeiraConta->recuperaNomeTitular();
+echo $primeiraConta->recuperaNomeTitular() . PHP_EOL;
