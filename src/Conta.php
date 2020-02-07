@@ -3,9 +3,9 @@
 class Conta {
 
     //Atributos
-    public $cpfTitular;
-    public $nomeTitular;
-    public $saldo = 0;
+    private $cpfTitular;
+    private $nomeTitular;
+    private $saldo = 0;
 
 
     //Métodos
