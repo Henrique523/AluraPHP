@@ -33,4 +33,15 @@ class Conta {
         $this->sacar($valorATransferir);
         $contaDestino->depositar($valorATransferir);
     }
+
+    public function recuperaSaldo(): float {
+        return $this->saldo;
+    }
+
+    public function recuperaCpfTitular(): string {
+        return $this->cpfTitular;
+    }
+    public function recuperaNomeTitular(): string {
+        return $this->nomeTitular;
+    }
 }
