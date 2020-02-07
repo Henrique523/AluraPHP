@@ -34,6 +34,14 @@ class Conta {
         $contaDestino->depositar($valorATransferir);
     }
 
+    public function defineCpfTitular(string $cpf): void {
+        $this->cpfTitular = $cpf;
+    }
+
+    public function defineNomeTitular(string $nome): void {
+        $this->nomeTitular = $nome;
+    }
+
     public function recuperaSaldo(): float {
         return $this->saldo;
     }
