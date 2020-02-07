@@ -5,8 +5,14 @@ class Conta {
     //Atributos
     private $cpfTitular;
     private $nomeTitular;
-    private $saldo = 0;
+    private $saldo;
 
+    //Construtor
+    public function __construct(string $cpfTitular, string $nomeTitular) {
+        $this->saldo = 0;
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
+    }
 
     //Métodos
     public function sacar (float $valorASacar): void {
