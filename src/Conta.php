@@ -23,6 +23,15 @@ class Conta {
         self::$numeroDeContas++;
     }
 
+    //O método destruct irá, sempre que um objeto criado não tiver mais uma variável referenciando a ele, apagar este objeto
+    //da memória, evitando assim que mais memória seja usada sem necessidade.
+    public function __destruct() {
+        if (self::$numeroDeContas > 2) {
+            echo "Há mais de uma conta ativa.";
+            self::$numeroDeContas--;
+        }
+    }
+
     //Métodos
     public function sacar (float $valorASacar): void {
         if($valorASacar > $this->saldo) {
