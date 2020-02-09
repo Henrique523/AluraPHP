@@ -3,16 +3,23 @@
 class Conta {
 
     //Atributos
+    /*Atributos estáticos são aqueles que se referem à classe em si, e não às características
+    dos objetos que serão criados a partir dela. */
     private $cpfTitular;
     private $nomeTitular;
     private $saldo;
+    public static $numeroDeContas = 0;
 
     //Construtor
+    /*Para acessarmos um atributo estático, temos de chamá-lo da seguinte forma:
+        nomeDaClasse::$atributo. Dessa forma, conseguiremos mexer no atributo da classe normalmente. */
     public function __construct(string $cpfTitular, string $nomeTitular) {
         $this->saldo = 0;
         $this->cpfTitular = $cpfTitular;
         $this->nomeTitular = $nomeTitular;
         $this->validaNomeTitular($nomeTitular);
+    
+        Conta::$numeroDeContas++;
     }
 
     //Métodos
