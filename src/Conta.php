@@ -9,6 +9,7 @@ class Conta {
     private $nomeTitular;
     private $saldo;
     private static $numeroDeContas = 0;
+    private static $codigoDoBanco = 77;
 
     //Construtor
     /*Para acessarmos um atributo estático, temos de chamá-lo da seguinte forma:
@@ -19,7 +20,7 @@ class Conta {
         $this->nomeTitular = $nomeTitular;
         $this->validaNomeTitular($nomeTitular);
     
-        Conta::$numeroDeContas++;
+        self::$numeroDeContas++;
     }
 
     //Métodos
@@ -76,6 +77,6 @@ class Conta {
     }
 
     public static function recuperaNumeroDeContas(): int {
-        return Conta::$numeroDeContas;
+        return self::$numeroDeContas;
     }
 }
