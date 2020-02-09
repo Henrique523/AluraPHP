@@ -8,7 +8,6 @@ class Conta {
     private $titular;
     private $saldo;
     private static $numeroDeContas = 0;
-    private static $codigoDoBanco = 77;
 
     //Construtor
     /*Para acessarmos um atributo estático, temos de chamá-lo da seguinte forma:
@@ -23,10 +22,7 @@ class Conta {
     //O método destruct irá, sempre que um objeto criado não tiver mais uma variável referenciando a ele, apagar este objeto
     //da memória, evitando assim que mais memória seja usada sem necessidade.
     public function __destruct() {
-        if (self::$numeroDeContas > 2) {
-            echo "Há mais de uma conta ativa.";
             self::$numeroDeContas--;
-        }
     }
 
     //Métodos
