@@ -5,8 +5,7 @@ class Conta {
     //Atributos
     /*Atributos estáticos são aqueles que se referem à classe em si, e não às características
     dos objetos que serão criados a partir dela. */
-    private $cpfTitular;
-    private $nomeTitular;
+    private $titular;
     private $saldo;
     private static $numeroDeContas = 0;
     private static $codigoDoBanco = 77;
@@ -14,11 +13,9 @@ class Conta {
     //Construtor
     /*Para acessarmos um atributo estático, temos de chamá-lo da seguinte forma:
         nomeDaClasse::$atributo. Dessa forma, conseguiremos mexer no atributo da classe normalmente. */
-    public function __construct(string $cpfTitular, string $nomeTitular) {
+    public function __construct(Titular $titular) {
+        $this->titular = $titular;
         $this->saldo = 0;
-        $this->cpfTitular = $cpfTitular;
-        $this->nomeTitular = $nomeTitular;
-        $this->validaNomeTitular($nomeTitular);
     
         self::$numeroDeContas++;
     }
@@ -58,31 +55,16 @@ class Conta {
         $contaDestino->depositar($valorATransferir);
     }
 
-    public function defineCpfTitular(string $cpf): void {
-        $this->cpfTitular = $cpf;
-    }
-
-    public function defineNomeTitular(string $nome): void {
-        $this->nomeTitular = $nome;
-    }
-
     public function recuperaSaldo(): float {
         return $this->saldo;
     }
 
-    public function recuperaCpfTitular(): string {
-        return $this->cpfTitular;
-    }
-
     public function recuperaNomeTitular(): string {
-        return $this->nomeTitular;
+        return $this->titular->recuperaNome();
     }
 
-    private function validaNomeTitular(string $nomeTitular): void {
-        if(strlen($nomeTitular) < 5) {
-            echo "Nome precisa de pelo menos 5 caracteres";
-            exit();
-        }
+    public function recuperaCpfTitular(): string {
+        return $this->titular->recuperaCpf();
     }
 
     public static function recuperaNumeroDeContas(): int {
