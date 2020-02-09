@@ -8,7 +8,7 @@ class Conta {
     private $cpfTitular;
     private $nomeTitular;
     private $saldo;
-    public static $numeroDeContas = 0;
+    private static $numeroDeContas = 0;
 
     //Construtor
     /*Para acessarmos um atributo estático, temos de chamá-lo da seguinte forma:
@@ -73,5 +73,9 @@ class Conta {
             echo "Nome precisa de pelo menos 5 caracteres";
             exit();
         }
+    }
+
+    public static function recuperaNumeroDeContas(): int {
+        return Conta::$numeroDeContas;
     }
 }
